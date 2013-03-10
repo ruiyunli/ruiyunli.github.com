@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | RyanLeo]]></title>
   <link href="http://ruiyunli.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ruiyunli.github.com/"/>
-  <updated>2013-03-10T22:48:53+08:00</updated>
+  <updated>2013-03-10T22:51:03+08:00</updated>
   <id>http://ruiyunli.github.com/</id>
   <author>
     <name><![CDATA[RyanLeo]]></name>
@@ -18,16 +18,20 @@
     <link href="http://ruiyunli.github.com/blog/2013/03/10/build-blog-with-octopress/"/>
     <updated>2013-03-10T19:44:00+08:00</updated>
     <id>http://ruiyunli.github.com/blog/2013/03/10/build-blog-with-octopress</id>
-    <content type="html"><![CDATA[<!-- more -->
-
-
-<p><code>windows环境下基于Octopress的博客搭建和部署</code></p>
+    <content type="html"><![CDATA[<p><code>windows环境下基于Octopress的博客搭建和部署</code></p>
 
 <h3>搭建 Octopress 本地环境</h3>
 
 <ul>
 <li><p>安装 <a href="http://help.github.com/win-set-up-git/">git for windows</a></p></li>
 <li><p>安装<code>ruby</code>，下载地址: <a href="http://rubyforge.org/frs/?group_id=167">RubyInstaller</a>，安装版本 <a href="http://rubyforge.org/frs/download.php/75127/rubyinstaller-1.9.2-p290.exe">rubyinstaller-1.9.2-p290.exe</a>，注意版本是1.9.2</p></li>
+</ul>
+
+
+<!-- more -->
+
+
+<ul>
 <li><p>安装gem编译环境， 下载地址：<a href="https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe">DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe</a>，下载完成后，将其解压到 如 <code>E:\DevKit</code>，然后在win的cmd窗口中执行如下命令进行安装：
 <div>
   <pre><code class='c'>cd E:\DevKit
