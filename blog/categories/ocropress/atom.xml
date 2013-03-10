@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ocropress | RyanLeo]]></title>
+  <link href="http://ruiyunli.github.com/blog/categories/ocropress/atom.xml" rel="self"/>
+  <link href="http://ruiyunli.github.com/"/>
+  <updated>2013-03-10T20:16:59+08:00</updated>
+  <id>http://ruiyunli.github.com/</id>
+  <author>
+    <name><![CDATA[RyanLeo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Skills When Use Octopress]]></title>
+    <link href="http://ruiyunli.github.com/blog/2013/03/10/skills-when-use-octopress/"/>
+    <updated>2013-03-10T19:48:00+08:00</updated>
+    <id>http://ruiyunli.github.com/blog/2013/03/10/skills-when-use-octopress</id>
+    <content type="html"><![CDATA[<p><code>以下均为Windows系统中使用总结</code></p>
+
+<h2>关于UTF8编码</h2>
+
+<ul>
+<li><p>先使用rake new_post["FileName"]</p></li>
+<li><p>使用Notepad++打开文件，并编辑</p></li>
+<li><p>格式->转为UTF-8无BOM编码格式，保存</p></li>
+<li><p>rake generate &amp; rake preview</p></li>
+</ul>
+
+
+<h2>添加标签分类</h2>
+
+<ul>
+<li>One category</li>
+</ul>
+
+
+<p>categories: Sass</p>
+
+<ul>
+<li>Multiple categories example 1</li>
+</ul>
+
+
+<p>categories: [CSS3, Sass, Media Queries]</p>
+
+<ul>
+<li>Multiple categories example 2</li>
+</ul>
+
+
+<blockquote><p>categories:</p>
+
+<p>- CSS3</p>
+
+<p>- Sass</p>
+
+<p>- Media Queries</p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

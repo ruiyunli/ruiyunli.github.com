@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[RyanLeo]]></title>
-  <link href="http://ruiyunli.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Octopress | RyanLeo]]></title>
+  <link href="http://ruiyunli.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ruiyunli.github.com/"/>
   <updated>2013-03-10T20:16:59+08:00</updated>
   <id>http://ruiyunli.github.com/</id>
@@ -12,54 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Skills When Use Octopress]]></title>
-    <link href="http://ruiyunli.github.com/blog/2013/03/10/skills-when-use-octopress/"/>
-    <updated>2013-03-10T19:48:00+08:00</updated>
-    <id>http://ruiyunli.github.com/blog/2013/03/10/skills-when-use-octopress</id>
-    <content type="html"><![CDATA[<p><code>以下均为Windows系统中使用总结</code></p>
-
-<h2>关于UTF8编码</h2>
-
-<ul>
-<li><p>先使用rake new_post[&#8220;FileName&#8221;]</p></li>
-<li><p>使用Notepad++打开文件，并编辑</p></li>
-<li><p>格式->转为UTF-8无BOM编码格式，保存</p></li>
-<li><p>rake generate &amp; rake preview</p></li>
-</ul>
-
-
-<h2>添加标签分类</h2>
-
-<ul>
-<li>One category</li>
-</ul>
-
-
-<p>categories: Sass</p>
-
-<ul>
-<li>Multiple categories example 1</li>
-</ul>
-
-
-<p>categories: [CSS3, Sass, Media Queries]</p>
-
-<ul>
-<li>Multiple categories example 2</li>
-</ul>
-
-
-<blockquote><p>categories:</p>
-
-<p>- CSS3</p>
-
-<p>- Sass</p>
-
-<p>- Media Queries</p></blockquote>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Build Blog With Octopress]]></title>
@@ -95,7 +47,7 @@ e. 安装python，下载地址：activepython ，安装2.7版，主要是博客�
 LC_ALL=zh_CN.UTF-8
 b. 变更 gem 的更新源，ruby的官方更新源经常被河蟹，木有办法，幸亏国内有淘宝做好事，提供了国内的更新源，这样速度就快多了，变更如下：</p>
 
-<p>gem sources &#8211;remove http://rubygems.org/
+<p>gem sources --remove http://rubygems.org/
 gem sources -a http://ruby.taobao.org/
 gem sources -l
 注意 ：请确保只有 http://ruby.taobao.org/ 唯一一个条目
@@ -107,13 +59,13 @@ c. 安装 rdoc 和 bundler</p>
 <p>a. 下载 Octopress 源码</p>
 
 <p>git clone git://github.com/imathis/octopress.git octopress
-cd octopress # If you use RVM, You&#8217;ll be asked if you trust the .rvmrc file (say yes).
-ruby &#8211;version # Should report Ruby 1.9.2
+cd octopress # If you use RVM, You'll be asked if you trust the .rvmrc file (say yes).
+ruby --version # Should report Ruby 1.9.2
 b. 安装依赖模块</p>
 
 <p>$ vi Gemfile
-将行 ： source &#8220;http://rubygems.org/&#8221;
-改为 ： source &#8220;http://ruby.taobao.org/&#8221;
+将行 ： source "http://rubygems.org/"
+改为 ： source "http://ruby.taobao.org/"
 $ bundle install
 c. 安装 默认主题</p>
 
@@ -122,7 +74,7 @@ c. 安装 默认主题</p>
 $ rake install
 rake aborted!
 You have already activated rake 0.9.2.2, but your Gemfile requires rake 0.9.2. Using bundle exec may solve this.
-(See full trace by running task with &#8211;trace)
+(See full trace by running task with --trace)
 修正办法为：
 $ bundle update; rake install
 5. 发布博客到github pages</p>
@@ -143,7 +95,7 @@ e. 发送到github 服务器，访问 http://careychow.github.com 查看博客�
 f. 保存博客源码到github source分支</p>
 
 <p>git add .
-git commit -m &#8216;blog source&#8217;
+git commit -m 'blog source'
 git push origin source
 6. 配置 Octopress</p>
 
@@ -157,12 +109,12 @@ simple_search: http://google.com/search
 description:
 b. 绑定个人域名</p>
 
-<p>echo &#8216;zhourunsheng.com&#8217; >> octopress/source/CNAME
-修改域名 &#8216;zhourunsheng.com&#8217;  A记录到 207.97.227.245
+<p>echo 'zhourunsheng.com' >> octopress/source/CNAME
+修改域名 'zhourunsheng.com'  A记录到 207.97.227.245
 c. 创建新文章和新页面</p>
 
-<p>rake new_post[&#8220;article name&#8221;]
-rake new_page[&#8220;page name&#8221;]
+<p>rake new_post["article name"]
+rake new_page["page name"]
 d. 发布到github个人空间</p>
 
 <p>rake generate
