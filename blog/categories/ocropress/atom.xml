@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ocropress | RyanLeo]]></title>
   <link href="http://ruiyunli.github.com/blog/categories/ocropress/atom.xml" rel="self"/>
   <link href="http://ruiyunli.github.com/"/>
-  <updated>2013-03-10T22:51:03+08:00</updated>
+  <updated>2013-03-10T22:59:27+08:00</updated>
   <id>http://ruiyunli.github.com/</id>
   <author>
     <name><![CDATA[RyanLeo]]></name>
@@ -20,102 +20,112 @@
     <id>http://ruiyunli.github.com/blog/2013/03/10/skills-when-use-octopress</id>
     <content type="html"><![CDATA[<p><code>以下均为Windows系统中使用总结</code></p>
 
-<h2>关于UTF8编码</h2>
+<h3>关于UTF8编码</h3>
 
 <ul>
-<li><p>先使用rake new_post["FileName"]</p></li>
-<li><p>使用Notepad++打开文件，并编辑</p></li>
-<li><p>格式->转为UTF-8无BOM编码格式，保存</p></li>
-<li><p>rake generate &amp; rake preview</p></li>
+<li>先使用<code>rake new_post["FileName"]</code></li>
+<li>使用<code>Notepad++</code>打开文件，并编辑</li>
+<li>格式->转为UTF-8无BOM编码格式，保存</li>
+<li><code>rake generate &amp; rake preview</code></li>
 </ul>
 
 
 <!-- more -->
 
 
-<h2>添加标签分类</h2>
+<h3>添加标签分类</h3>
 
 <ul>
-<li>One category</li>
+<li><p><code>One category</code>
+<div>
+  <pre><code class='c'>categories: Sass</code></pre>
+</div>
+</p></li>
+<li><p><code>Multiple categories example 1</code>
+<div>
+  <pre><code class='c'>categories: [CSS3, Sass, Media Queries]</code></pre>
+</div>
+</p></li>
+<li><p><code>Multiple categories example 2</code>
+<div>
+  <pre><code class='c'>categories:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CSS3&lt;/li&gt;
+&lt;li&gt;Sass&lt;/li&gt;
+&lt;li&gt;Media Queries</code></pre>
+</div>
+</li>
+</ul>
+</li>
 </ul>
 
 
-<p>categories: Sass</p>
+<h3>添加Disqus</h3>
 
 <ul>
-<li>Multiple categories example 1</li>
+<li>编辑<code>_config.yml</code>，修改下面的内容
+<div>
+  <pre><code class='c'>&lt;h1&gt;Disqus Comments&lt;/h1&gt;
+
+&lt;p&gt;disqus_short_name: shareizzzorg
+disqus_show_comment_count: true</code></pre>
+</div>
+</p></li>
 </ul>
 
 
-<p>categories: [CSS3, Sass, Media Queries]</p>
+<h3>关于加速网站</h3>
 
 <ul>
-<li>Multiple categories example 2</li>
+<li>在<code>_config.yml</code>中关掉<code>twitter</code></li>
 </ul>
 
 
-<blockquote><p>categories:</p>
-
-<p>- CSS3</p>
-
-<p>- Sass</p>
-
-<p>- Media Queries</p></blockquote>
-
-<h2>添加Disqus</h2>
+<h3>关于<code>Read More...</code></h3>
 
 <ul>
-<li>编辑_config.yml，修改下面的内容</li>
+<li>在某一篇博文的文字间如果使用<code>&lt;!-- more --&gt;</code>，则后面的文字都将不会显示，而出现一个<code>Read On-&gt;</code>的按钮</li>
 </ul>
 
 
-<blockquote><p># Disqus Comments</p>
-
-<p>disqus_short_name: shareizzzorg</p>
-
-<p>disqus_show_comment_count: true</p></blockquote>
-
-<h2>关于加速网站</h2>
+<h3>关于<code>404</code></h3>
 
 <ul>
-<li>在_config.yml中关掉twitter</li>
-</ul>
-
-
-<h2>关于Read More</h2>
-
-<ul>
-<li>在某一篇博文的文字间如果使用<!-- more -->，则后面的文字都将不会显示，而出现一个Read On->的按钮</li>
-</ul>
-
-
-<h2>关于404</h2>
-
-<ul>
-<li>在source目录下添加404.html页面</li>
+<li>在<code>source</code>目录下添加<code>404.html</code>页面</li>
 </ul>
 
 
 <p><code>http://www.360doc.com/content/12/0216/17/1016783_187135339.shtml</code></p>
 
 <ul>
-<li>在octopress\source_includes\custom中的navigation.html中添加</li>
+<li>在<code>octopress\source\_includes\custom中的navigation.html</code>中添加</li>
 </ul>
 
 
 <p><code>&lt;li&gt;&lt;a href="/../about"&gt;About&lt;/a&gt;&lt;/li&gt;</code></p>
 
 <ul>
-<li>rake generate</li>
+<li><code>rake generate</code></li>
 </ul>
 
 
-<h2>关于NavigationBar</h2>
+<h3>关于<code>NavigationBar</code></h3>
 
-<p>*在octopress\source_includes\custom中的navigation.html中添加标签</p>
+<p>*在<code>octopress\source\_includes\custom</code>中的<code>navigation.html</code>中添加标签</p>
 
 <ul>
-<li>在所添加的标签所指向的文件夹中添加makedown文件或者html文件</li>
+<li>在所添加的标签所指向的文件夹中添加<code>makedown</code>文件或者<code>html</code>文件</li>
+</ul>
+
+
+<h3>关于代码高亮</h3>
+
+<ul>
+<li>在代码区的两端加上标签，区前加<code><div>
+  <pre><code class='c'>&lt;/code&gt;，区后加&lt;code&gt;</code></pre>
+</div>
+</code>，其中C为语言种类</li>
 </ul>
 
 ]]></content>
