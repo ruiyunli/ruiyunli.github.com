@@ -61,6 +61,7 @@ rake generate &amp; rake preview &hellip;">
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/../about">About</a></li>
 </ul>
 
 </nav>
@@ -89,6 +90,8 @@ rake generate &amp; rake preview &hellip;">
 
 <time datetime="2013-03-10T19:48:00+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2013</time>
         
+         | <a href="#disqus_thread">Comments</a>
+        
       </p>
     
   </header>
@@ -104,6 +107,9 @@ rake generate &amp; rake preview &hellip;">
 <li><p>格式->转为UTF-8无BOM编码格式，保存</p></li>
 <li><p>rake generate &amp; rake preview</p></li>
 </ul>
+
+
+<!-- more -->
 
 
 <h2>添加标签分类</h2>
@@ -134,6 +140,63 @@ rake generate &amp; rake preview &hellip;">
 <p>- Sass</p>
 
 <p>- Media Queries</p></blockquote>
+
+<h2>添加Disqus</h2>
+
+<ul>
+<li>编辑_config.yml，修改下面的内容</li>
+</ul>
+
+
+<blockquote><p># Disqus Comments</p>
+
+<p>disqus_short_name: shareizzzorg</p>
+
+<p>disqus_show_comment_count: true</p></blockquote>
+
+<h2>关于加速网站</h2>
+
+<ul>
+<li>在_config.yml中关掉twitter</li>
+</ul>
+
+
+<h2>关于Read More</h2>
+
+<ul>
+<li>在某一篇博文的文字间如果使用<!-- more -->，则后面的文字都将不会显示，而出现一个Read On->的按钮</li>
+</ul>
+
+
+<h2>关于404</h2>
+
+<ul>
+<li>在source目录下添加404.html页面</li>
+</ul>
+
+
+<p><code>http://www.360doc.com/content/12/0216/17/1016783_187135339.shtml</code></p>
+
+<ul>
+<li>在octopress\source_includes\custom中的navigation.html中添加</li>
+</ul>
+
+
+<p><code>&lt;li&gt;&lt;a href="/../about"&gt;About&lt;/a&gt;&lt;/li&gt;</code></p>
+
+<ul>
+<li>rake generate</li>
+</ul>
+
+
+<h2>关于NavigationBar</h2>
+
+<p>*在octopress\source_includes\custom中的navigation.html中添加标签</p>
+
+<ul>
+<li>在所添加的标签所指向的文件夹中添加makedown文件或者html文件</li>
+</ul>
+
 </div>
 
 
@@ -170,8 +233,6 @@ rake generate &amp; rake preview &hellip;">
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ruiyunli.github.com/blog/2013/03/10/skills-when-use-octopress/" data-via="" data-counturl="http://ruiyunli.github.com/blog/2013/03/10/skills-when-use-octopress/" >Tweet</a>
-  
   
   
 </div>
@@ -185,6 +246,12 @@ rake generate &amp; rake preview &hellip;">
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -223,21 +290,27 @@ rake generate &amp; rake preview &hellip;">
 </footer>
   
 
+<script type="text/javascript">
+      var disqus_shortname = 'shareizzzorg';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ruiyunli.github.com/blog/2013/03/10/skills-when-use-octopress/';
+        var disqus_url = 'http://ruiyunli.github.com/blog/2013/03/10/skills-when-use-octopress/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
 
 
 
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 

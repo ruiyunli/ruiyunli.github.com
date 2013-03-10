@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ocropress | RyanLeo]]></title>
   <link href="http://ruiyunli.github.com/blog/categories/ocropress/atom.xml" rel="self"/>
   <link href="http://ruiyunli.github.com/"/>
-  <updated>2013-03-10T20:16:59+08:00</updated>
+  <updated>2013-03-10T22:48:53+08:00</updated>
   <id>http://ruiyunli.github.com/</id>
   <author>
     <name><![CDATA[RyanLeo]]></name>
@@ -28,6 +28,9 @@
 <li><p>格式->转为UTF-8无BOM编码格式，保存</p></li>
 <li><p>rake generate &amp; rake preview</p></li>
 </ul>
+
+
+<!-- more -->
 
 
 <h2>添加标签分类</h2>
@@ -58,6 +61,63 @@
 <p>- Sass</p>
 
 <p>- Media Queries</p></blockquote>
+
+<h2>添加Disqus</h2>
+
+<ul>
+<li>编辑_config.yml，修改下面的内容</li>
+</ul>
+
+
+<blockquote><p># Disqus Comments</p>
+
+<p>disqus_short_name: shareizzzorg</p>
+
+<p>disqus_show_comment_count: true</p></blockquote>
+
+<h2>关于加速网站</h2>
+
+<ul>
+<li>在_config.yml中关掉twitter</li>
+</ul>
+
+
+<h2>关于Read More</h2>
+
+<ul>
+<li>在某一篇博文的文字间如果使用<!-- more -->，则后面的文字都将不会显示，而出现一个Read On->的按钮</li>
+</ul>
+
+
+<h2>关于404</h2>
+
+<ul>
+<li>在source目录下添加404.html页面</li>
+</ul>
+
+
+<p><code>http://www.360doc.com/content/12/0216/17/1016783_187135339.shtml</code></p>
+
+<ul>
+<li>在octopress\source_includes\custom中的navigation.html中添加</li>
+</ul>
+
+
+<p><code>&lt;li&gt;&lt;a href="/../about"&gt;About&lt;/a&gt;&lt;/li&gt;</code></p>
+
+<ul>
+<li>rake generate</li>
+</ul>
+
+
+<h2>关于NavigationBar</h2>
+
+<p>*在octopress\source_includes\custom中的navigation.html中添加标签</p>
+
+<ul>
+<li>在所添加的标签所指向的文件夹中添加makedown文件或者html文件</li>
+</ul>
+
 ]]></content>
   </entry>
   

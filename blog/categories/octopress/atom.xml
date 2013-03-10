@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | RyanLeo]]></title>
   <link href="http://ruiyunli.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ruiyunli.github.com/"/>
-  <updated>2013-03-10T20:16:59+08:00</updated>
+  <updated>2013-03-10T22:48:53+08:00</updated>
   <id>http://ruiyunli.github.com/</id>
   <author>
     <name><![CDATA[RyanLeo]]></name>
@@ -18,107 +18,165 @@
     <link href="http://ruiyunli.github.com/blog/2013/03/10/build-blog-with-octopress/"/>
     <updated>2013-03-10T19:44:00+08:00</updated>
     <id>http://ruiyunli.github.com/blog/2013/03/10/build-blog-with-octopress</id>
-    <content type="html"><![CDATA[<ol>
-<li>搭建 Octopress 本地环境</li>
-</ol>
+    <content type="html"><![CDATA[<!-- more -->
 
 
-<p>linux 环境的搭建可以参见官方文档 http://octopress.org/docs/setup/</p>
+<p><code>windows环境下基于Octopress的博客搭建和部署</code></p>
 
-<p>因为我自己通常都在win7下面办公，所以下面介绍一下win7环境下 Octopress 的搭建和部署</p>
+<h3>搭建 Octopress 本地环境</h3>
 
-<p>a. 安装 git，下载地址：msysgit，最新版本 Git-1.7.10-preview20120409.exe ，详细参见 http://help.github.com/win-set-up-git/</p>
-
-<p>b.安装 ruby，下载地址: RubyInstaller，安装版本 rubyinstaller-1.9.2-p290.exe，注意版本是1.9.2</p>
-
-<p>c. 安装gem编译环境， 下载地址：DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe，下载完成后，将其解压到 如 E:\DevKit，然后在win的cmd窗口中执行如下命令进行安装：</p>
-
-<p>cd E:\DevKit
+<ul>
+<li><p>安装 <a href="http://help.github.com/win-set-up-git/">git for windows</a></p></li>
+<li><p>安装<code>ruby</code>，下载地址: <a href="http://rubyforge.org/frs/?group_id=167">RubyInstaller</a>，安装版本 <a href="http://rubyforge.org/frs/download.php/75127/rubyinstaller-1.9.2-p290.exe">rubyinstaller-1.9.2-p290.exe</a>，注意版本是1.9.2</p></li>
+<li><p>安装gem编译环境， 下载地址：<a href="https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe">DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe</a>，下载完成后，将其解压到 如 <code>E:\DevKit</code>，然后在win的cmd窗口中执行如下命令进行安装：
+<div>
+  <pre><code class='c'>cd E:\DevKit
 ruby dk.rb init
-ruby dk.rb instal
-e. 安装python，下载地址：activepython ，安装2.7版，主要是博客代码加亮模块需要python环境的支持，安装完以后，在win的cmd窗口中执行：</p>
+ruby dk.rb instal</code></pre>
+</div>
+</p></li>
+<li><p>安装<code>python</code>，下载地址：<a href="http://www.activestate.com/activepython">activepython</a> ，安装2.7版，主要是博客代码加亮模块需要<code>python</code>环境的支持，安装完以后，在win的cmd窗口中执行：
+<div>
+  <pre><code class='c'>easy_install pygments</code></pre>
+</div>
+</p></li>
+</ul>
 
-<p> easy_install pygments
-3. 更新配置</p>
 
-<p>a. 中文 utf-8 编码的支持，在win7环境变量中配置如下：</p>
+<h3>更新配置</h3>
 
-<p>LANG=zh_CN.UTF-8
-LC_ALL=zh_CN.UTF-8
-b. 变更 gem 的更新源，ruby的官方更新源经常被河蟹，木有办法，幸亏国内有淘宝做好事，提供了国内的更新源，这样速度就快多了，变更如下：</p>
-
-<p>gem sources --remove http://rubygems.org/
+<ul>
+<li><p>中文<code>utf-8</code>编码的支持，在win xp环境变量中配置如下：
+<div>
+  <pre><code class='c'>LANG=zh_CN.UTF-8
+LC_ALL=zh_CN.UTF-8</code></pre>
+</div>
+</p></li>
+<li><p>变更<code>gem</code>的更新源，<code>ruby</code>的官方更新源经常被河蟹，木有办法，幸亏国内有淘宝做好事，提供了国内的更新源，这样速度就快多了，变更如下：
+<div>
+  <pre><code class='c'>gem sources --remove http://rubygems.org/
 gem sources -a http://ruby.taobao.org/
-gem sources -l
-注意 ：请确保只有 http://ruby.taobao.org/ 唯一一个条目
-c. 安装 rdoc 和 bundler</p>
+gem sources -l</code></pre>
+</div>
 
-<p>gem install rdoc bundler
-4. 安装 Octopress</p>
+注意 ：请确保只有 <code>http://ruby.taobao.org/</code> 唯一一个条目</p></li>
+<li><p>安装<code>rdoc</code>和<code>bundler</code>
+<div>
+  <pre><code class='c'>gem install rdoc bundler</code></pre>
+</div>
+</p></li>
+</ul>
 
-<p>a. 下载 Octopress 源码</p>
 
-<p>git clone git://github.com/imathis/octopress.git octopress
+<h3>安装<code>Octopress</code></h3>
+
+<ul>
+<li><p>下载<code>Octopress</code>源码
+<div>
+  <pre><code class='c'>git clone git://github.com/imathis/octopress.git octopress
 cd octopress # If you use RVM, You'll be asked if you trust the .rvmrc file (say yes).
-ruby --version # Should report Ruby 1.9.2
-b. 安装依赖模块</p>
+ruby --version # Should report Ruby 1.9.2</code></pre>
+</div>
+</p></li>
+<li><p>安装依赖模块
+<div>
+  <pre><code class='c'>$ vi Gemfile&lt;/p&gt;
 
-<p>$ vi Gemfile
-将行 ： source "http://rubygems.org/"
-改为 ： source "http://ruby.taobao.org/"
-$ bundle install
-c. 安装 默认主题</p>
+&lt;h1&gt;将行 ： source &quot;http://rubygems.org/&quot;&lt;/h1&gt;
 
-<p>rake install
+&lt;h1&gt;改为 ： source &quot;http://ruby.taobao.org/&quot;&lt;/h1&gt;
+
+&lt;p&gt;$ bundle install</code></pre>
+</div>
+</p></li>
+<li><p>安装默认主题
+<div>
+  <pre><code class='c'>rake install</code></pre>
+</div>
+
 如若出错：
-$ rake install
+<div>
+  <pre><code class='c'>$ rake install
 rake aborted!
 You have already activated rake 0.9.2.2, but your Gemfile requires rake 0.9.2. Using bundle exec may solve this.
-(See full trace by running task with --trace)
+(See full trace by running task with --trace)</code></pre>
+</div>
+
 修正办法为：
-$ bundle update; rake install
-5. 发布博客到github pages</p>
+<div>
+  <pre><code class='c'>$ bundle update; rake install</code></pre>
+</div>
+</p></li>
+</ul>
 
-<p>a. 与github建立连接</p>
 
-<p>rake setup_github_pages
-按照提示输入 github page repository的url地址，例如：git@github.com:RubyLouvre/rubylouvre.github.com.git
-b. 生成静态页面</p>
+<h3>发布博客到<code>github pages</code></h3>
 
-<p>rake generate
-c. 本地预览，访问 http://localhost:4000 查看博客本地运行效果</p>
+<ul>
+<li><p>与<code>github</code>建立连接
+<div>
+  <pre><code class='c'>rake setup_github_pages</code></pre>
+</div>
 
-<p>rake preview
-e. 发送到github 服务器，访问 http://careychow.github.com 查看博客服务器运行效果</p>
-
-<p>rake deploy
-f. 保存博客源码到github source分支</p>
-
-<p>git add .
+按照提示输入 github page repository的url地址，例如：<code>git@github.com:RubyLouvre/rubylouvre.github.com.git</code></p></li>
+<li><p>生成静态页面
+<div>
+  <pre><code class='c'>rake generate</code></pre>
+</div>
+</p></li>
+<li><p>本地预览，访问 <code>http://localhost:4000</code>,查看博客本地运行效果
+<div>
+  <pre><code class='c'>rake preview</code></pre>
+</div>
+</p></li>
+<li><p>发送到<code>github</code>服务器，访问<code>http://careychow.github.com</code>查看博客服务器运行效果
+<div>
+  <pre><code class='c'>rake deploy</code></pre>
+</div>
+</p></li>
+<li><p>保存博客源码到<code>github source</code>分支
+<div>
+  <pre><code class='c'>git add .
 git commit -m 'blog source'
-git push origin source
-6. 配置 Octopress</p>
+git push origin source</code></pre>
+</div>
+</p></li>
+</ul>
 
-<p>a. 更新配置文件 octopress/_config.yml, ，参考http://octopress.org/docs/configuring/，示例如下，若包含中文，请将文件格式保存成utf-8的格式</p>
 
-<p>url: http://zhourunsheng.com
-title: 润物无声
-subtitle: 天空一朵雨做的云
-author: Carey Chow
+<h3>配置<code>Octopress</code></h3>
+
+<ul>
+<li>更新配置文件 <code>octopress/_config.yml</code>, ，参考<code>http://octopress.org/docs/configuring/</code>，示例如下，若包含中文，请将文件格式保存成utf-8的格式
+<div>
+  <pre><code class='c'>url: http://share.izzz.org
+title: RyanLeo
+subtitle: Share With You...
+author: RyanLeo
 simple_search: http://google.com/search
-description:
-b. 绑定个人域名</p>
+description:</code></pre>
+</div>
+</li>
+<li><p>绑定个人域名
+<div>
+  <pre><code class='c'>echo 'www.example.com' &gt;&gt; octopress/source/CNAME</code></pre>
+</div>
 
-<p>echo 'zhourunsheng.com' >> octopress/source/CNAME
-修改域名 'zhourunsheng.com'  A记录到 207.97.227.245
-c. 创建新文章和新页面</p>
+修改域名 <code>www.example.com</code> A记录到 <code>207.97.227.245</code>,或者<code>CNAME</code>到<code>github-name.github.com</code></p></li>
+<li><p>创建新文章和新页面
+<div>
+  <pre><code class='c'>rake new_post[&quot;article name&quot;]
+rake new_page[&quot;page name&quot;]</code></pre>
+</div>
+</p></li>
+<li>发布到<code>github</code>个人空间
+<div>
+  <pre><code class='c'>rake generate
+rake deploy</code></pre>
+</div>
+</li>
+</ul>
 
-<p>rake new_post["article name"]
-rake new_page["page name"]
-d. 发布到github个人空间</p>
-
-<p>rake generate
-rake deploy</p>
 ]]></content>
   </entry>
   

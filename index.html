@@ -12,7 +12,7 @@
   <meta name="description" content="以下均为Windows系统中使用总结 关于UTF8编码 先使用rake new_post[&#8220;FileName&#8221;]
 使用Notepad++打开文件，并编辑
 格式->转为UTF-8无BOM编码格式，保存
-rake generate &amp; rake preview &hellip;">
+rake generate &amp; rake preview ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -61,6 +61,7 @@ rake generate &amp; rake preview &hellip;">
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/../about">About</a></li>
 </ul>
 
 </nav>
@@ -92,6 +93,8 @@ rake generate &amp; rake preview &hellip;">
 
 <time datetime="2013-03-10T19:48:00+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2013</time>
         
+         | <a href="/blog/2013/03/10/skills-when-use-octopress/#disqus_thread">Comments</a>
+        
       </p>
     
   </header>
@@ -109,36 +112,12 @@ rake generate &amp; rake preview &hellip;">
 </ul>
 
 
-<h2>添加标签分类</h2>
-
-<ul>
-<li>One category</li>
-</ul>
-
-
-<p>categories: Sass</p>
-
-<ul>
-<li>Multiple categories example 1</li>
-</ul>
-
-
-<p>categories: [CSS3, Sass, Media Queries]</p>
-
-<ul>
-<li>Multiple categories example 2</li>
-</ul>
-
-
-<blockquote><p>categories:</p>
-
-<p>- CSS3</p>
-
-<p>- Sass</p>
-
-<p>- Media Queries</p></blockquote>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/03/10/skills-when-use-octopress/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -167,114 +146,19 @@ rake generate &amp; rake preview &hellip;">
 
 <time datetime="2013-03-10T19:44:00+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2013</time>
         
+         | <a href="/blog/2013/03/10/build-blog-with-octopress/#disqus_thread">Comments</a>
+        
       </p>
     
   </header>
 
 
-  <div class="entry-content"><ol>
-<li>搭建 Octopress 本地环境</li>
-</ol>
-
-
-<p>linux 环境的搭建可以参见官方文档 http://octopress.org/docs/setup/</p>
-
-<p>因为我自己通常都在win7下面办公，所以下面介绍一下win7环境下 Octopress 的搭建和部署</p>
-
-<p>a. 安装 git，下载地址：msysgit，最新版本 Git-1.7.10-preview20120409.exe ，详细参见 http://help.github.com/win-set-up-git/</p>
-
-<p>b.安装 ruby，下载地址: RubyInstaller，安装版本 rubyinstaller-1.9.2-p290.exe，注意版本是1.9.2</p>
-
-<p>c. 安装gem编译环境， 下载地址：DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe，下载完成后，将其解压到 如 E:\DevKit，然后在win的cmd窗口中执行如下命令进行安装：</p>
-
-<p>cd E:\DevKit
-ruby dk.rb init
-ruby dk.rb instal
-e. 安装python，下载地址：activepython ，安装2.7版，主要是博客代码加亮模块需要python环境的支持，安装完以后，在win的cmd窗口中执行：</p>
-
-<p> easy_install pygments
-3. 更新配置</p>
-
-<p>a. 中文 utf-8 编码的支持，在win7环境变量中配置如下：</p>
-
-<p>LANG=zh_CN.UTF-8
-LC_ALL=zh_CN.UTF-8
-b. 变更 gem 的更新源，ruby的官方更新源经常被河蟹，木有办法，幸亏国内有淘宝做好事，提供了国内的更新源，这样速度就快多了，变更如下：</p>
-
-<p>gem sources &#8211;remove http://rubygems.org/
-gem sources -a http://ruby.taobao.org/
-gem sources -l
-注意 ：请确保只有 http://ruby.taobao.org/ 唯一一个条目
-c. 安装 rdoc 和 bundler</p>
-
-<p>gem install rdoc bundler
-4. 安装 Octopress</p>
-
-<p>a. 下载 Octopress 源码</p>
-
-<p>git clone git://github.com/imathis/octopress.git octopress
-cd octopress # If you use RVM, You&#8217;ll be asked if you trust the .rvmrc file (say yes).
-ruby &#8211;version # Should report Ruby 1.9.2
-b. 安装依赖模块</p>
-
-<p>$ vi Gemfile
-将行 ： source &#8220;http://rubygems.org/&#8221;
-改为 ： source &#8220;http://ruby.taobao.org/&#8221;
-$ bundle install
-c. 安装 默认主题</p>
-
-<p>rake install
-如若出错：
-$ rake install
-rake aborted!
-You have already activated rake 0.9.2.2, but your Gemfile requires rake 0.9.2. Using bundle exec may solve this.
-(See full trace by running task with &#8211;trace)
-修正办法为：
-$ bundle update; rake install
-5. 发布博客到github pages</p>
-
-<p>a. 与github建立连接</p>
-
-<p>rake setup_github_pages
-按照提示输入 github page repository的url地址，例如：git@github.com:RubyLouvre/rubylouvre.github.com.git
-b. 生成静态页面</p>
-
-<p>rake generate
-c. 本地预览，访问 http://localhost:4000 查看博客本地运行效果</p>
-
-<p>rake preview
-e. 发送到github 服务器，访问 http://careychow.github.com 查看博客服务器运行效果</p>
-
-<p>rake deploy
-f. 保存博客源码到github source分支</p>
-
-<p>git add .
-git commit -m &#8216;blog source&#8217;
-git push origin source
-6. 配置 Octopress</p>
-
-<p>a. 更新配置文件 octopress/_config.yml, ，参考http://octopress.org/docs/configuring/，示例如下，若包含中文，请将文件格式保存成utf-8的格式</p>
-
-<p>url: http://zhourunsheng.com
-title: 润物无声
-subtitle: 天空一朵雨做的云
-author: Carey Chow
-simple_search: http://google.com/search
-description:
-b. 绑定个人域名</p>
-
-<p>echo &#8216;zhourunsheng.com&#8217; >> octopress/source/CNAME
-修改域名 &#8216;zhourunsheng.com&#8217;  A记录到 207.97.227.245
-c. 创建新文章和新页面</p>
-
-<p>rake new_post[&#8220;article name&#8221;]
-rake new_page[&#8220;page name&#8221;]
-d. 发布到github个人空间</p>
-
-<p>rake generate
-rake deploy</p>
-</div>
+  <div class="entry-content"></div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/03/10/build-blog-with-octopress/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -320,21 +204,24 @@ rake deploy</p>
 </footer>
   
 
+<script type="text/javascript">
+      var disqus_shortname = 'shareizzzorg';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
 
 
 
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 
