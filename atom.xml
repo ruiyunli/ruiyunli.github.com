@@ -4,7 +4,7 @@
   <title><![CDATA[RyanLeo]]></title>
   <link href="http://ruiyunli.github.com/atom.xml" rel="self"/>
   <link href="http://ruiyunli.github.com/"/>
-  <updated>2013-03-10T22:59:27+08:00</updated>
+  <updated>2013-03-12T15:20:03+08:00</updated>
   <id>http://ruiyunli.github.com/</id>
   <author>
     <name><![CDATA[RyanLeo]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[About Git]]></title>
+    <link href="http://ruiyunli.github.com/blog/2013/03/12/about-git/"/>
+    <updated>2013-03-12T15:00:00+08:00</updated>
+    <id>http://ruiyunli.github.com/blog/2013/03/12/about-git</id>
+    <content type="html"><![CDATA[<h3>Basic Command</h3>
+
+<div>
+  <pre><code class='c'>git init
+git add .   //or git add -A
+git commit -m 'your commit'
+git remote add origin https://github.com/user-name/repo-name.git
+git push origin master</code></pre>
+</div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Skills When Use Octopress]]></title>
