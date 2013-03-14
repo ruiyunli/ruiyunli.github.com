@@ -1,0 +1,14 @@
+---
+layout: page
+title: Sorry
+footer: false
+---
+
+<h3>What's your want?</h3>
+<div id="blog-archives">
+{% for post in site.posts limit:10 %}
+<article>
+	{% include archive_post.html %}
+</article>
+{% endfor %}
+</div>

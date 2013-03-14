@@ -1,0 +1,28 @@
+---
+layout: post
+title: "About Git"
+date: 2013-03-12 15:00
+comments: true
+categories: 
+---
+###Basic Command
+
+{% highlight c %}
+git init
+git add .   //or git add -A
+git commit -m 'your commit'
+git remote add origin https://github.com/user-name/repo-name.git
+git push origin master
+{% endhighlight %}
+
+<!-- more -->
+
+###本地从服务器更新代码
+
+`note：`只能更新比本地版本更新的节点
+
+{% highlight c %}
+git fetch origin master:tmp
+git diff tmp
+git merge tmp
+{% endhighlight %}
