@@ -4,7 +4,7 @@
   <title><![CDATA[RyanLeo]]></title>
   <link href="http://ruiyunli.github.com/atom.xml" rel="self"/>
   <link href="http://ruiyunli.github.com/"/>
-  <updated>2013-03-13T17:22:58+08:00</updated>
+  <updated>2013-03-14T15:29:55+08:00</updated>
   <id>http://ruiyunli.github.com/</id>
   <author>
     <name><![CDATA[RyanLeo]]></name>
@@ -26,6 +26,22 @@ git add .   //or git add -A
 git commit -m 'your commit'
 git remote add origin https://github.com/user-name/repo-name.git
 git push origin master</code></pre>
+</div>
+
+
+
+
+<!-- more -->
+
+
+<h3>本地从服务器更新代码</h3>
+
+<p><code>note：</code>只能更新比本地版本更新的节点</p>
+
+<div>
+  <pre><code class='c'>git fetch origin master:tmp
+git diff tmp
+git merge tmp</code></pre>
 </div>
 
 ]]></content>

@@ -109,6 +109,22 @@ git remote add origin https://github.com/user-name/repo-name.git
 git push origin master</code></pre>
 </div>
 
+
+
+
+<!-- more -->
+
+
+<h3>本地从服务器更新代码</h3>
+
+<p><code>note：</code>只能更新比本地版本更新的节点</p>
+
+<div>
+  <pre><code class='c'>git fetch origin master:tmp
+git diff tmp
+git merge tmp</code></pre>
+</div>
+
 </div>
 
 

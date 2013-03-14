@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ocropress | RyanLeo]]></title>
   <link href="http://ruiyunli.github.com/blog/categories/ocropress/atom.xml" rel="self"/>
   <link href="http://ruiyunli.github.com/"/>
-  <updated>2013-03-13T17:22:58+08:00</updated>
+  <updated>2013-03-14T15:29:55+08:00</updated>
   <id>http://ruiyunli.github.com/</id>
   <author>
     <name><![CDATA[RyanLeo]]></name>
@@ -36,44 +36,58 @@
 <h3>添加标签分类</h3>
 
 <ul>
-<li><p><code>One category</code>
-<div>
+<li><code>One category</code></li>
+</ul>
+
+
+<p><div>
   <pre><code class='c'>categories: Sass</code></pre>
 </div>
-</p></li>
-<li><p><code>Multiple categories example 1</code>
-<div>
+</p>
+
+<ul>
+<li><code>Multiple categories example 1</code></li>
+</ul>
+
+
+<p><div>
   <pre><code class='c'>categories: [CSS3, Sass, Media Queries]</code></pre>
 </div>
-</p></li>
-<li><p><code>Multiple categories example 2</code>
-<div>
+</p>
+
+<ul>
+<li><code>Multiple categories example 2</code></li>
+</ul>
+
+
+<p><div>
   <pre><code class='c'>categories:&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;CSS3&lt;/li&gt;
-&lt;li&gt;Sass&lt;/li&gt;
-&lt;li&gt;Media Queries</code></pre>
-</div>
-</li>
-</ul>
-</li>
-</ul>
+&lt;pre&gt;&lt;code&gt;- CSS3
+- Sass
+- Media Queries
+&lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;</code></pre>
+</div>
+</p>
 
 <h3>添加Disqus</h3>
 
 <ul>
-<li>编辑<code>_config.yml</code>，修改下面的内容
-<div>
-  <pre><code class='c'>&lt;h1&gt;Disqus Comments&lt;/h1&gt;
+<li>编辑<code>_config.yml</code>，修改下面的内容</li>
+</ul>
+
+
+<p><div>
+  <pre><code class='c'>&lt;/p&gt;
+
+&lt;h1&gt;Disqus Comments&lt;/h1&gt;
 
 &lt;p&gt;disqus_short_name: shareizzzorg
 disqus_show_comment_count: true</code></pre>
 </div>
-</p></li>
-</ul>
-
+</p>
 
 <h3>关于加速网站</h3>
 
