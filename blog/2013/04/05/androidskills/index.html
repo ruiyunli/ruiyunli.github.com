@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Ocropress - RyanLeo</title>
+  <title>AndroidSkills - RyanLeo</title>
   <meta name="author" content="RyanLeo">
 
   
-  <meta name="description" content="Category: Ocropress">
+  <meta name="description" content="About Menu showAsAction可以修改为ifroom或者always，是否显示
+在手机中，竖屏状态下text是不会显示的，切换到横屏才会显示text
+图标可以到Android网站下载http://developer.android.com/design/downloads/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruiyunli.github.comblog/categories/ocropress">
+  <link rel="canonical" href="http://ruiyunli.github.com/blog/2013/04/05/androidskills">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="RyanLeo" type="application/atom+xml">
@@ -66,36 +68,114 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Ocropress</h1>
+    
+      <h1 class="entry-title">AndroidSkills</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-05T15:59:00+08:00" pubdate data-updated="true">Apr 5<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><h3>About Menu</h3>
 
-  
-  <h2>2013</h2>
-
-<article>
-  
-<h1><a href="/blog/2013/03/10/skills-when-use-octopress/">Skills When Use Octopress</a></h1>
-<time datetime="2013-03-10T19:48:00+08:00" pubdate><span class='month'>Mar</span> <span class='day'>10</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ocropress/'>Ocropress</a></span>
-</footer>
+<ul>
+<li><p>showAsAction可以修改为ifroom或者always，是否显示</p></li>
+<li><p>在手机中，竖屏状态下text是不会显示的，切换到横屏才会显示text</p></li>
+<li><p>图标可以到Android网站下载<code>http://developer.android.com/design/downloads/index.html</code></p></li>
+</ul>
 
 
-</article>
+<!-- more -->
+
+
+<h3>About PreferenceActivity</h3>
+
+<ul>
+<li><p>xml文件保存在res/xml文件夹下面</p></li>
+<li><p>对onChangePerferenceListener和OnClickPerferenceListener两个函数，返回TRUE分别表示更新值和已经处理响应，返回FALSE分别表示不保存newValue和没有处理响应</p></li>
+<li><p>取得值，getString(key,&#8221;unset&#8221;)</p></li>
+<li><p>设置值，edit().putstring(key,&#8221;newValue&#8221;);</p></li>
+</ul>
+
+
+<h3>Eclipse Line Number</h3>
+
+<ul>
+<li>Ctrl+ F10</li>
+</ul>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">RyanLeo</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-05T15:59:00+08:00" pubdate data-updated="true">Apr 5<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/12/about-git/" title="Previous Post: About Git">&laquo; About Git</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/04/05/android-dialog/" title="Next Post: Android Alert Dialog">Android Alert Dialog &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -150,7 +230,10 @@
       var disqus_shortname = 'shareizzzorg';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ruiyunli.github.com/blog/2013/04/05/androidskills/';
+        var disqus_url = 'http://ruiyunli.github.com/blog/2013/04/05/androidskills/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
