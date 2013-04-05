@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | RyanLeo]]></title>
   <link href="http://ruiyunli.github.com/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://ruiyunli.github.com/"/>
-  <updated>2013-04-05T17:41:57+08:00</updated>
+  <updated>2013-04-05T19:05:12+08:00</updated>
   <id>http://ruiyunli.github.com/</id>
   <author>
     <name><![CDATA[RyanLeo]]></name>
@@ -180,6 +180,90 @@ new AlertDialog.Builder(self)
 
 <p><code>参考资料</code>
 http://www.cnblogs.com/Gaojiecai/archive/2011/12/10/2283156.html</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android Skills]]></title>
+    <link href="http://ruiyunli.github.com/blog/2013/04/05/android-skills/"/>
+    <updated>2013-04-05T15:59:00+08:00</updated>
+    <id>http://ruiyunli.github.com/blog/2013/04/05/android-skills</id>
+    <content type="html"><![CDATA[<h3>About Menu</h3>
+
+<ul>
+<li><p>showAsAction可以修改为ifroom或者always，是否显示</p></li>
+<li><p>在手机中，竖屏状态下text是不会显示的，切换到横屏才会显示text</p></li>
+<li><p>图标可以到Android网站下载<code>http://developer.android.com/design/downloads/index.html</code></p></li>
+</ul>
+
+
+<!-- more -->
+
+
+<h3>About PreferenceActivity</h3>
+
+<ul>
+<li><p>xml文件保存在res/xml文件夹下面</p></li>
+<li><p>对onChangePerferenceListener和OnClickPerferenceListener两个函数，返回TRUE分别表示更新值和已经处理响应，返回FALSE分别表示不保存newValue和没有处理响应</p></li>
+<li><p>取得值，getString(key,"unset")</p></li>
+<li><p>设置值，edit().putstring(key,"newValue");</p></li>
+</ul>
+
+
+<h3>Eclipse Line Number</h3>
+
+<ul>
+<li>Ctrl+ F10</li>
+</ul>
+
+
+<h3>About dip dp px sp</h3>
+
+<ul>
+<li>dip: device independent  pixels(设备独立像素). 不同设备有不同的显示效果,这个和设备硬件有关，一般我们为了支持WVGA、HVGA和QVGA推荐使用这这个，不依赖像素。</li>
+</ul>
+
+
+<p>这里要特别注意dip与屏幕密度有关，而屏幕密度又与具体的硬件有关，硬件设置不正确，有可能导致dip不能正常显示。在屏幕密度为160的显示屏上，1dip=1px，有时候可能你的屏幕分辨率很大如480*800，但是屏幕密度没有正确设置比如说还是160，那么这个时候凡是使用dip的都会显示异常，基本都是显示过小。</p>
+
+<pre><code>dip的换算： 
+    dip（value）=(int) (px（value）/1.5 + 0.5) 
+</code></pre>
+
+<ul>
+<li>dp: 很简单，和dip是一样的。</li>
+<li>px: pixels(像素)，不同的设备不同的显示屏显示效果是相同的，这是绝对像素，是多少就永远是多少不会改变。</li>
+<li>sp: scaled pixels(放大像素). 主要用于字体显示best for textsize。</li>
+</ul>
+
+
+<p><code>备注</code>: 根据google的推荐，像素统一使用dip，字体统一使用sp</p>
+
+<p>举个例子区别px和dip：</p>
+
+<p>px就是像素，如果用px,就会用实际像素画，比个如吧，用画一条长度为240px的横线，在480宽的模拟器上看就是一半的屏宽，而在320宽的模拟器上看就是2／3的屏宽了。</p>
+
+<p>而dip，就是把屏幕的高分成480分，宽分成320分。比如你做一条160dip的横线，无论你在320还480的模拟器上，都是一半屏的长度。</p>
+
+<pre><code>public static int dip2px(Context context, float dipValue){ 
+    final float scale = context.getResources().getDisplayMetrics().density; 
+    return (int)(dipValue * scale + 0.5f); 
+} 
+
+public static int px2dip(Context context, float pxValue){ 
+    final float scale = context.getResources().getDisplayMetrics().density; 
+    return (int)(pxValue / scale + 0.5f); 
+} 
+</code></pre>
+
+<h3>About Application</h3>
+
+<ul>
+<li><p>在任何一个Activity中使用this.getApplication()获得操作句柄</p></li>
+<li><p>其中可以放置全局变量</p></li>
+<li><p>可以写应用中某个模块的初始化代码</p></li>
+</ul>
+
 ]]></content>
   </entry>
   
