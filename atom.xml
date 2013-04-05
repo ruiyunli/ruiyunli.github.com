@@ -4,7 +4,7 @@
   <title><![CDATA[RyanLeo]]></title>
   <link href="http://ruiyunli.github.com/atom.xml" rel="self"/>
   <link href="http://ruiyunli.github.com/"/>
-  <updated>2013-04-05T17:18:40+08:00</updated>
+  <updated>2013-04-05T17:41:57+08:00</updated>
   <id>http://ruiyunli.github.com/</id>
   <author>
     <name><![CDATA[RyanLeo]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android Baidu Map]]></title>
+    <link href="http://ruiyunli.github.com/blog/2013/04/05/android-baidu-map/"/>
+    <updated>2013-04-05T17:35:00+08:00</updated>
+    <id>http://ruiyunli.github.com/blog/2013/04/05/android-baidu-map</id>
+    <content type="html"><![CDATA[<h3>关于取点</h3>
+
+<p>目的：点击屏幕上任意一点的位置，得到其经度和纬度</p>
+
+<p>思路：获取屏幕坐标，转化为经纬度坐标</p>
+
+<!-- more -->
+
+
+<pre><code>int x = (int) event.getX();
+int y = (int) event.getY();
+
+// 将像素坐标转为地址坐标
+Projection getProjection = mMapView.getProjection();
+GeoPoint pt = getProjection.fromPixels(x, y);   
+
+String longitude = Integer.toString(pt.getLongitudeE6());
+String latitude = Integer.toString(pt.getLatitudeE6());            
+
+switch (event.getAction() &amp; MotionEvent.ACTION_MASK) {
+case MotionEvent.ACTION_DOWN:
+    logText.setText("x: " + x + " y: " + y
+            + '\n' +" longitude: " + longitude
+            + " latitude: " + latitude);
+
+    corrPoint = new GeoPoint(pt.getLatitudeE6(), pt.getLongitudeE6());
+    corrItem = new OverlayItem(corrPoint, "title", "snippet");
+    corrItem.setMarker(getResources().getDrawable(R.drawable.icon_marka));
+    correctionOverlay.refreshItem(corrItem);
+    mMapView.refresh();
+
+    break;
+}
+</code></pre>
+
+<p><code>参考资料</code>
+http://www.cnblogs.com/fangfang01/archive/2013/03/05/2945050.html</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android Errors]]></title>
+    <link href="http://ruiyunli.github.com/blog/2013/04/05/android-errors/"/>
+    <updated>2013-04-05T17:31:00+08:00</updated>
+    <id>http://ruiyunli.github.com/blog/2013/04/05/android-errors</id>
+    <content type="html"><![CDATA[<h3>Installation error: INSTALL_FAILED_INSUFFICIENT_STORAGE</h3>
+
+<p>内存不够，卸掉一些程序</p>
+
+<!-- more -->
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Android Alert Dialog]]></title>
@@ -125,10 +184,10 @@ http://www.cnblogs.com/Gaojiecai/archive/2011/12/10/2283156.html</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[AndroidSkills]]></title>
-    <link href="http://ruiyunli.github.com/blog/2013/04/05/androidskills/"/>
+    <title type="html"><![CDATA[Android Skills]]></title>
+    <link href="http://ruiyunli.github.com/blog/2013/04/05/android-skills/"/>
     <updated>2013-04-05T15:59:00+08:00</updated>
-    <id>http://ruiyunli.github.com/blog/2013/04/05/androidskills</id>
+    <id>http://ruiyunli.github.com/blog/2013/04/05/android-skills</id>
     <content type="html"><![CDATA[<h3>About Menu</h3>
 
 <ul>
@@ -155,6 +214,54 @@ http://www.cnblogs.com/Gaojiecai/archive/2011/12/10/2283156.html</p>
 
 <ul>
 <li>Ctrl+ F10</li>
+</ul>
+
+
+<h3>About dip dp px sp</h3>
+
+<ul>
+<li>dip: device independent  pixels(设备独立像素). 不同设备有不同的显示效果,这个和设备硬件有关，一般我们为了支持WVGA、HVGA和QVGA推荐使用这这个，不依赖像素。</li>
+</ul>
+
+
+<p>这里要特别注意dip与屏幕密度有关，而屏幕密度又与具体的硬件有关，硬件设置不正确，有可能导致dip不能正常显示。在屏幕密度为160的显示屏上，1dip=1px，有时候可能你的屏幕分辨率很大如480*800，但是屏幕密度没有正确设置比如说还是160，那么这个时候凡是使用dip的都会显示异常，基本都是显示过小。</p>
+
+<pre><code>dip的换算： 
+    dip（value）=(int) (px（value）/1.5 + 0.5) 
+</code></pre>
+
+<ul>
+<li>dp: 很简单，和dip是一样的。</li>
+<li>px: pixels(像素)，不同的设备不同的显示屏显示效果是相同的，这是绝对像素，是多少就永远是多少不会改变。</li>
+<li>sp: scaled pixels(放大像素). 主要用于字体显示best for textsize。</li>
+</ul>
+
+
+<p><code>备注</code>: 根据google的推荐，像素统一使用dip，字体统一使用sp</p>
+
+<p>举个例子区别px和dip：</p>
+
+<p>px就是像素，如果用px,就会用实际像素画，比个如吧，用画一条长度为240px的横线，在480宽的模拟器上看就是一半的屏宽，而在320宽的模拟器上看就是2／3的屏宽了。</p>
+
+<p>而dip，就是把屏幕的高分成480分，宽分成320分。比如你做一条160dip的横线，无论你在320还480的模拟器上，都是一半屏的长度。</p>
+
+<pre><code>public static int dip2px(Context context, float dipValue){ 
+    final float scale = context.getResources().getDisplayMetrics().density; 
+    return (int)(dipValue * scale + 0.5f); 
+} 
+
+public static int px2dip(Context context, float pxValue){ 
+    final float scale = context.getResources().getDisplayMetrics().density; 
+    return (int)(pxValue / scale + 0.5f); 
+} 
+</code></pre>
+
+<h3>About Application</h3>
+
+<ul>
+<li><p>在任何一个Activity中使用this.getApplication()获得操作句柄</p></li>
+<li><p>其中可以放置全局变量</p></li>
+<li><p>可以写应用中某个模块的初始化代码</p></li>
 </ul>
 
 ]]></content>

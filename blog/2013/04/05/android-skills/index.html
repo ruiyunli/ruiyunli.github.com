@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Skills When Use Octopress - RyanLeo</title>
+  <title>Android Skills - RyanLeo</title>
   <meta name="author" content="RyanLeo">
 
   
-  <meta name="description" content="以下均为Windows系统中使用总结 关于UTF8编码 先使用rake new_post["FileName"]
-使用Notepad++打开文件，并编辑
-格式->转为UTF-8无BOM编码格式，保存
-rake generate &amp; rake preview 添加标签分类 One &hellip;">
+  <meta name="description" content="About Menu showAsAction可以修改为ifroom或者always，是否显示
+在手机中，竖屏状态下text是不会显示的，切换到横屏才会显示text
+图标可以到Android网站下载http://developer.android.com/design/downloads/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ rake generate &amp; rake preview 添加标签分类 One &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruiyunli.github.com/blog/2013/03/10/skills-when-use-octopress">
+  <link rel="canonical" href="http://ruiyunli.github.com/blog/2013/04/05/android-skills">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="RyanLeo" type="application/atom+xml">
@@ -73,7 +72,7 @@ rake generate &amp; rake preview 添加标签分类 One &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Skills When Use Octopress</h1>
+      <h1 class="entry-title">Android Skills</h1>
     
     
       <p class="meta">
@@ -89,7 +88,7 @@ rake generate &amp; rake preview 添加标签分类 One &hellip;">
   
 
 
-<time datetime="2013-03-10T19:48:00+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2013</time>
+<time datetime="2013-04-05T15:59:00+08:00" pubdate data-updated="true">Apr 5<span>th</span>, 2013</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -98,121 +97,80 @@ rake generate &amp; rake preview 添加标签分类 One &hellip;">
   </header>
 
 
-<div class="entry-content"><p><code>以下均为Windows系统中使用总结</code></p>
-
-<h3>关于UTF8编码</h3>
+<div class="entry-content"><h3>About Menu</h3>
 
 <ul>
-<li>先使用<code>rake new_post["FileName"]</code></li>
-<li>使用<code>Notepad++</code>打开文件，并编辑</li>
-<li>格式->转为UTF-8无BOM编码格式，保存</li>
-<li><code>rake generate &amp; rake preview</code></li>
+<li><p>showAsAction可以修改为ifroom或者always，是否显示</p></li>
+<li><p>在手机中，竖屏状态下text是不会显示的，切换到横屏才会显示text</p></li>
+<li><p>图标可以到Android网站下载<code>http://developer.android.com/design/downloads/index.html</code></p></li>
 </ul>
 
 
 <!-- more -->
 
 
-<h3>添加标签分类</h3>
+<h3>About PreferenceActivity</h3>
 
 <ul>
-<li><code>One category</code></li>
+<li><p>xml文件保存在res/xml文件夹下面</p></li>
+<li><p>对onChangePerferenceListener和OnClickPerferenceListener两个函数，返回TRUE分别表示更新值和已经处理响应，返回FALSE分别表示不保存newValue和没有处理响应</p></li>
+<li><p>取得值，getString(key,&#8221;unset&#8221;)</p></li>
+<li><p>设置值，edit().putstring(key,&#8221;newValue&#8221;);</p></li>
 </ul>
 
 
-<div>
-  <pre><code class='c'>categories: Sass</code></pre>
-</div>
-
+<h3>Eclipse Line Number</h3>
 
 <ul>
-<li><code>Multiple categories example 1</code></li>
+<li>Ctrl+ F10</li>
 </ul>
 
 
-<div>
-  <pre><code class='c'>categories: [CSS3, Sass, Media Queries]</code></pre>
-</div>
-
+<h3>About dip dp px sp</h3>
 
 <ul>
-<li><code>Multiple categories example 2</code></li>
+<li>dip: device independent  pixels(设备独立像素). 不同设备有不同的显示效果,这个和设备硬件有关，一般我们为了支持WVGA、HVGA和QVGA推荐使用这这个，不依赖像素。</li>
 </ul>
 
 
-<div>
-  <pre><code class='c'>categories:
-    - CSS3
-    - Sass
-    - Media Queries</code></pre>
-</div>
+<p>这里要特别注意dip与屏幕密度有关，而屏幕密度又与具体的硬件有关，硬件设置不正确，有可能导致dip不能正常显示。在屏幕密度为160的显示屏上，1dip=1px，有时候可能你的屏幕分辨率很大如480*800，但是屏幕密度没有正确设置比如说还是160，那么这个时候凡是使用dip的都会显示异常，基本都是显示过小。</p>
 
-
-<h3>添加Disqus</h3>
+<pre><code>dip的换算： 
+    dip（value）=(int) (px（value）/1.5 + 0.5) 
+</code></pre>
 
 <ul>
-<li>编辑<code>_config.yml</code>，修改下面的内容</li>
+<li>dp: 很简单，和dip是一样的。</li>
+<li>px: pixels(像素)，不同的设备不同的显示屏显示效果是相同的，这是绝对像素，是多少就永远是多少不会改变。</li>
+<li>sp: scaled pixels(放大像素). 主要用于字体显示best for textsize。</li>
 </ul>
 
 
-<div>
-  <pre><code class='c'># Disqus Comments
-disqus_short_name: shareizzzorg
-disqus_show_comment_count: true</code></pre>
-</div>
+<p><code>备注</code>: 根据google的推荐，像素统一使用dip，字体统一使用sp</p>
 
+<p>举个例子区别px和dip：</p>
 
-<h3>关于加速网站</h3>
+<p>px就是像素，如果用px,就会用实际像素画，比个如吧，用画一条长度为240px的横线，在480宽的模拟器上看就是一半的屏宽，而在320宽的模拟器上看就是2／3的屏宽了。</p>
 
-<ul>
-<li>在<code>_config.yml</code>中关掉<code>twitter</code></li>
-</ul>
+<p>而dip，就是把屏幕的高分成480分，宽分成320分。比如你做一条160dip的横线，无论你在320还480的模拟器上，都是一半屏的长度。</p>
 
+<pre><code>public static int dip2px(Context context, float dipValue){ 
+    final float scale = context.getResources().getDisplayMetrics().density; 
+    return (int)(dipValue * scale + 0.5f); 
+} 
 
-<h3>关于<code>Read More...</code></h3>
+public static int px2dip(Context context, float pxValue){ 
+    final float scale = context.getResources().getDisplayMetrics().density; 
+    return (int)(pxValue / scale + 0.5f); 
+} 
+</code></pre>
 
-<ul>
-<li>在某一篇博文的文字间如果使用<code>&lt;!-- more --&gt;</code>，则后面的文字都将不会显示，而出现一个<code>Read On-&gt;</code>的按钮</li>
-</ul>
-
-
-<h3>关于<code>404</code></h3>
+<h3>About Application</h3>
 
 <ul>
-<li>在<code>source</code>目录下添加<code>404.html</code>页面</li>
-</ul>
-
-
-<p><code>http://www.360doc.com/content/12/0216/17/1016783_187135339.shtml</code></p>
-
-<ul>
-<li>在<code>octopress\source\_includes\custom中的navigation.html</code>中添加</li>
-</ul>
-
-
-<p><code>&lt;li&gt;&lt;a href="/../about"&gt;About&lt;/a&gt;&lt;/li&gt;</code></p>
-
-<ul>
-<li><code>rake generate</code></li>
-</ul>
-
-
-<h3>关于<code>NavigationBar</code></h3>
-
-<p>*在<code>octopress\source\_includes\custom</code>中的<code>navigation.html</code>中添加标签</p>
-
-<ul>
-<li>在所添加的标签所指向的文件夹中添加<code>makedown</code>文件或者<code>html</code>文件</li>
-</ul>
-
-
-<h3>关于代码高亮</h3>
-
-<ul>
-<li>在代码区的两端加上标签，区前加<code>&lt;div&gt;
-&lt;pre&gt;&lt;code class='c'&gt;</code>，区后加<code>&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</code>，其中C为语言种类</li>
+<li><p>在任何一个Activity中使用this.getApplication()获得操作句柄</p></li>
+<li><p>其中可以放置全局变量</p></li>
+<li><p>可以写应用中某个模块的初始化代码</p></li>
 </ul>
 
 </div>
@@ -237,14 +195,8 @@ disqus_show_comment_count: true</code></pre>
   
 
 
-<time datetime="2013-03-10T19:48:00+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2013</time>
+<time datetime="2013-04-05T15:59:00+08:00" pubdate data-updated="true">Apr 5<span>th</span>, 2013</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/ocropress/'>Ocropress</a>
-  
-</span>
 
 
     </p>
@@ -258,10 +210,10 @@ disqus_show_comment_count: true</code></pre>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/03/10/build-blog-with-octopress/" title="Previous Post: Build Blog With Octopress">&laquo; Build Blog With Octopress</a>
+        <a class="basic-alignment left" href="/blog/2013/03/12/about-git/" title="Previous Post: About Git">&laquo; About Git</a>
       
       
-        <a class="basic-alignment right" href="/blog/2013/03/12/about-git/" title="Next Post: About Git">About Git &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2013/04/05/android-dialog/" title="Next Post: Android Alert Dialog">Android Alert Dialog &raquo;</a>
       
     </p>
   </footer>
@@ -327,8 +279,8 @@ disqus_show_comment_count: true</code></pre>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ruiyunli.github.com/blog/2013/03/10/skills-when-use-octopress/';
-        var disqus_url = 'http://ruiyunli.github.com/blog/2013/03/10/skills-when-use-octopress/';
+        var disqus_identifier = 'http://ruiyunli.github.com/blog/2013/04/05/android-skills/';
+        var disqus_url = 'http://ruiyunli.github.com/blog/2013/04/05/android-skills/';
         var disqus_script = 'embed.js';
       
     (function () {

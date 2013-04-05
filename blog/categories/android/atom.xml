@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | RyanLeo]]></title>
   <link href="http://ruiyunli.github.com/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://ruiyunli.github.com/"/>
-  <updated>2013-04-05T17:18:40+08:00</updated>
+  <updated>2013-04-05T17:41:57+08:00</updated>
   <id>http://ruiyunli.github.com/</id>
   <author>
     <name><![CDATA[RyanLeo]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android Baidu Map]]></title>
+    <link href="http://ruiyunli.github.com/blog/2013/04/05/android-baidu-map/"/>
+    <updated>2013-04-05T17:35:00+08:00</updated>
+    <id>http://ruiyunli.github.com/blog/2013/04/05/android-baidu-map</id>
+    <content type="html"><![CDATA[<h3>关于取点</h3>
+
+<p>目的：点击屏幕上任意一点的位置，得到其经度和纬度</p>
+
+<p>思路：获取屏幕坐标，转化为经纬度坐标</p>
+
+<!-- more -->
+
+
+<pre><code>int x = (int) event.getX();
+int y = (int) event.getY();
+
+// 将像素坐标转为地址坐标
+Projection getProjection = mMapView.getProjection();
+GeoPoint pt = getProjection.fromPixels(x, y);   
+
+String longitude = Integer.toString(pt.getLongitudeE6());
+String latitude = Integer.toString(pt.getLatitudeE6());            
+
+switch (event.getAction() &amp; MotionEvent.ACTION_MASK) {
+case MotionEvent.ACTION_DOWN:
+    logText.setText("x: " + x + " y: " + y
+            + '\n' +" longitude: " + longitude
+            + " latitude: " + latitude);
+
+    corrPoint = new GeoPoint(pt.getLatitudeE6(), pt.getLongitudeE6());
+    corrItem = new OverlayItem(corrPoint, "title", "snippet");
+    corrItem.setMarker(getResources().getDrawable(R.drawable.icon_marka));
+    correctionOverlay.refreshItem(corrItem);
+    mMapView.refresh();
+
+    break;
+}
+</code></pre>
+
+<p><code>参考资料</code>
+http://www.cnblogs.com/fangfang01/archive/2013/03/05/2945050.html</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android Errors]]></title>
+    <link href="http://ruiyunli.github.com/blog/2013/04/05/android-errors/"/>
+    <updated>2013-04-05T17:31:00+08:00</updated>
+    <id>http://ruiyunli.github.com/blog/2013/04/05/android-errors</id>
+    <content type="html"><![CDATA[<h3>Installation error: INSTALL_FAILED_INSUFFICIENT_STORAGE</h3>
+
+<p>内存不够，卸掉一些程序</p>
+
+<!-- more -->
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Android Alert Dialog]]></title>

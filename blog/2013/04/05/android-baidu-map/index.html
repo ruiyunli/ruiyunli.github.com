@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>AndroidSkills - RyanLeo</title>
+  <title>Android Baidu Map - RyanLeo</title>
   <meta name="author" content="RyanLeo">
 
   
-  <meta name="description" content="About Menu showAsAction可以修改为ifroom或者always，是否显示
-在手机中，竖屏状态下text是不会显示的，切换到横屏才会显示text
-图标可以到Android网站下载http://developer.android.com/design/downloads/ &hellip;">
+  <meta name="description" content="关于取点 目的：点击屏幕上任意一点的位置，得到其经度和纬度 思路：获取屏幕坐标，转化为经纬度坐标 int x = (int) event.getX();
+int y = (int) event.getY(); // 将像素坐标转为地址坐标
+Projection getProjection = &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ruiyunli.github.com/blog/2013/04/05/androidskills">
+  <link rel="canonical" href="http://ruiyunli.github.com/blog/2013/04/05/android-baidu-map">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="RyanLeo" type="application/atom+xml">
@@ -72,7 +72,7 @@
   
   <header>
     
-      <h1 class="entry-title">AndroidSkills</h1>
+      <h1 class="entry-title">Android Baidu Map</h1>
     
     
       <p class="meta">
@@ -88,7 +88,7 @@
   
 
 
-<time datetime="2013-04-05T15:59:00+08:00" pubdate data-updated="true">Apr 5<span>th</span>, 2013</time>
+<time datetime="2013-04-05T17:35:00+08:00" pubdate data-updated="true">Apr 5<span>th</span>, 2013</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -97,34 +97,43 @@
   </header>
 
 
-<div class="entry-content"><h3>About Menu</h3>
+<div class="entry-content"><h3>关于取点</h3>
 
-<ul>
-<li><p>showAsAction可以修改为ifroom或者always，是否显示</p></li>
-<li><p>在手机中，竖屏状态下text是不会显示的，切换到横屏才会显示text</p></li>
-<li><p>图标可以到Android网站下载<code>http://developer.android.com/design/downloads/index.html</code></p></li>
-</ul>
+<p>目的：点击屏幕上任意一点的位置，得到其经度和纬度</p>
 
+<p>思路：获取屏幕坐标，转化为经纬度坐标</p>
 
 <!-- more -->
 
 
-<h3>About PreferenceActivity</h3>
+<pre><code>int x = (int) event.getX();
+int y = (int) event.getY();
 
-<ul>
-<li><p>xml文件保存在res/xml文件夹下面</p></li>
-<li><p>对onChangePerferenceListener和OnClickPerferenceListener两个函数，返回TRUE分别表示更新值和已经处理响应，返回FALSE分别表示不保存newValue和没有处理响应</p></li>
-<li><p>取得值，getString(key,&#8221;unset&#8221;)</p></li>
-<li><p>设置值，edit().putstring(key,&#8221;newValue&#8221;);</p></li>
-</ul>
+// 将像素坐标转为地址坐标
+Projection getProjection = mMapView.getProjection();
+GeoPoint pt = getProjection.fromPixels(x, y);   
 
+String longitude = Integer.toString(pt.getLongitudeE6());
+String latitude = Integer.toString(pt.getLatitudeE6());            
 
-<h3>Eclipse Line Number</h3>
+switch (event.getAction() &amp; MotionEvent.ACTION_MASK) {
+case MotionEvent.ACTION_DOWN:
+    logText.setText("x: " + x + " y: " + y
+            + '\n' +" longitude: " + longitude
+            + " latitude: " + latitude);
 
-<ul>
-<li>Ctrl+ F10</li>
-</ul>
+    corrPoint = new GeoPoint(pt.getLatitudeE6(), pt.getLongitudeE6());
+    corrItem = new OverlayItem(corrPoint, "title", "snippet");
+    corrItem.setMarker(getResources().getDrawable(R.drawable.icon_marka));
+    correctionOverlay.refreshItem(corrItem);
+    mMapView.refresh();
 
+    break;
+}
+</code></pre>
+
+<p><code>参考资料</code>
+http://www.cnblogs.com/fangfang01/archive/2013/03/05/2945050.html</p>
 </div>
 
 
@@ -147,8 +156,14 @@
   
 
 
-<time datetime="2013-04-05T15:59:00+08:00" pubdate data-updated="true">Apr 5<span>th</span>, 2013</time>
+<time datetime="2013-04-05T17:35:00+08:00" pubdate data-updated="true">Apr 5<span>th</span>, 2013</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>Android</a>
+  
+</span>
 
 
     </p>
@@ -162,10 +177,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/03/12/about-git/" title="Previous Post: About Git">&laquo; About Git</a>
+        <a class="basic-alignment left" href="/blog/2013/04/05/android-errors/" title="Previous Post: Android Errors">&laquo; Android Errors</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/04/05/android-dialog/" title="Next Post: Android Alert Dialog">Android Alert Dialog &raquo;</a>
       
     </p>
   </footer>
@@ -186,23 +199,23 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/04/05/android-baidu-map/">Android Baidu Map</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/05/android-errors/">Android Errors</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/04/05/android-dialog/">Android Alert Dialog</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/04/05/androidskills/">AndroidSkills</a>
+        <a href="/blog/2013/04/05/android-skills/">Android Skills</a>
       </li>
     
       <li class="post">
         <a href="/blog/2013/03/12/about-git/">About Git</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/03/10/skills-when-use-octopress/">Skills When Use Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/03/10/build-blog-with-octopress/">Build Blog With Octopress</a>
       </li>
     
   </ul>
@@ -231,8 +244,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ruiyunli.github.com/blog/2013/04/05/androidskills/';
-        var disqus_url = 'http://ruiyunli.github.com/blog/2013/04/05/androidskills/';
+        var disqus_identifier = 'http://ruiyunli.github.com/blog/2013/04/05/android-baidu-map/';
+        var disqus_url = 'http://ruiyunli.github.com/blog/2013/04/05/android-baidu-map/';
         var disqus_script = 'embed.js';
       
     (function () {
